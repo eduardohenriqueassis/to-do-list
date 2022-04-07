@@ -13,6 +13,8 @@ body {
   margin: 100px auto;
   border-radius: 10px;
   background: #002f60;
+  box-shadow: 5px 5px 10px rgba(51, 51, 51, .6),
+              1px 1px 5px rgba(51, 51, 51, .8);
 }
 
 h2 {
@@ -69,6 +71,38 @@ h2 {
   border-radius: 5px;
 }
 
+.tarefas .closer {
+  position: absolute;
+  border: 3px solid #cfdce7;
+  background: #002f60;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  text-align: center;
+  right: 0px;
+  top: 0px;
+  transform: translate3d(50%, -50%, 0);
+  box-shadow: -3px 2px 3px rgba(51, 51, 51, .8);
+  cursor: pointer;
+}
+
+.tarefas .closer:hover{
+  border: 3px solid #bbcedd;
+  
+}
+.tarefas .closer::after {
+  content: 'X';
+  display: block;
+  margin: 0 auto;
+  color: #cfdce7;
+  font-weight: bold;
+  transform: translateX(5%);
+}
+
+.tarefas .closer:hover::after{
+  color: #bbcedd;
+}
+
 .tarefas ul {
   margin: 0;
   padding: 0;
@@ -81,7 +115,8 @@ ul li input {
 }
 
 ul li {
-  margin: 0px 2px 10px 2px;
+  position: relative;
+  margin: 0px 2px 20px 2px;
   display: flex;
   align-items: center;
   padding: 4px 5px;

@@ -6,7 +6,6 @@ const toDoList = [
 const adicionar = document.querySelector('.adicionar');
 let input = document.querySelector('.input-tarefa');
 const ul = document.querySelector('ul');
-const li = document.querySelectorAll('li');
 
 adicionar.addEventListener('click', adicionarTarefa);
 
@@ -15,6 +14,7 @@ function adicionarTarefa() {
   checkbox.type = 'checkbox';
   const novaTarefa = document.createElement('li');
   const p = document.createElement('p');
+  const createCloser = document.createElement('div');
 
   if (input.value === '') {
     alert('Insira sua tarefa!');
@@ -24,5 +24,20 @@ function adicionarTarefa() {
     novaTarefa.appendChild(p);
     p.innerHTML = input.value;
     input.value = '';
+    novaTarefa.appendChild(createCloser);
+    createCloser.classList.add('closer');
   }
+
+  removerTarefa();
 }
+
+function removerTarefa() {
+  const closers = document.querySelectorAll('.closer');
+  closers.forEach((btn) => {
+    btn.addEventListener('click', (event) => {
+      btn.parentElement.remove();
+    });
+  });
+}
+
+removerTarefa();
