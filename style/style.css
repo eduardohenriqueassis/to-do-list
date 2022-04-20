@@ -24,6 +24,7 @@ h2 {
 }
 
 .formulario-tarefas {
+  position: relative;
   margin: 0 auto;
   display: flex;
   justify-content: center;
@@ -142,6 +143,22 @@ li:nth-child(odd) {
   text-decoration: line-through;
 }
 
+.vazio {
+  border: 2px solid #edc125;
+}
+.span-alert {
+  position: absolute;
+  font-size: 1.2rem;
+  color: white;
+  bottom: -1.4rem;
+  left: 5px;
+  animation: slidein .5s forwards;
+  letter-spacing: .1rem;
+  
+  
+}
+
+
 @keyframes show-li {
   to {
     opacity: 0;
@@ -153,6 +170,7 @@ li:nth-child(odd) {
     transform: translate3d(0, 0px, 0);
   }
 }
+
 
 @media (max-width: 410px) {
   .formulario-tarefas {

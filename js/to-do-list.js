@@ -5,22 +5,29 @@ export default class ToDoList {
     this.button = document.querySelector(adicionar);
     this.closer = closer;
 
+    // criar elementos
+    this.checkbox = 'input';
+    this.li = 'li';
+    this.p = 'p';
+    this.div = 'div';
+
     this.eventAdicionarTarefa = this.eventAdicionarTarefa.bind(this);
-    this.removerTarefa = this.removerTarefa.bind(this);
   }
 
   // eslint-disable-next-line class-methods-use-this
 
   adicionarTarefa() {
-    const checkbox = document.createElement('input');
+    const checkbox = document.createElement(this.checkbox);
     checkbox.type = 'checkbox';
-    const novaTarefa = document.createElement('li');
-    const p = document.createElement('p');
-    const createCloser = document.createElement('div');
+    const novaTarefa = document.createElement(this.li);
+    const p = document.createElement(this.p);
+    const createCloser = document.createElement(this.div);
     if (this.input.value === '') {
-      // eslint-disable-next-line no-alert
-      alert('Insira sua tarefa!');
+      this.input.classList.add('vazio');
+      this.input.nextElementSibling.innerText = 'Preencha sua tarefa!';
     } else {
+      this.input.classList.remove('vazio');
+      this.input.nextElementSibling.innerText = '';
       this.ul.appendChild(novaTarefa);
       novaTarefa.appendChild(checkbox);
       novaTarefa.appendChild(p);
